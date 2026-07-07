@@ -72,10 +72,10 @@ Synthesized and implemented with zero warnings.
 ## Build
 
 1. Open Vivado and create a project targeting the Digilent Basys 3 (Artix-7 XC7A35T)
-2. Add all sources from `rtl/` and the constraints file from `constraints/`
-3. Connect the PMOD ADC and analog front-end per the schematic in `analog/`
-4. Synthesize, implement, and program the board; connect a VGA monitor
-
+2. Add all sources from `rtl/` and the constraints file from `constraints/`; set the VHDL file type to **VHDL 2008** (the design uses 2008 features such as `process(all)` and conditional signal assignment in processes)
+3. Generate the `blk_mem_gen_0` IP (Block Memory Generator: single-port ROM, 16-bit width, 4096 depth) initialized with `rtl/acquisition/myVoltmeter.coe` — this ROM converts raw ADC codes to display voltages for the seven-segment readout
+4. Connect the PMOD ADC and analog front-end per the schematic above
+5. Synthesize, implement, and program the board; connect a VGA monitor
 ## Future Work
 
 - **Trigger mode** — stabilize the display on repetitive signals (classic oscilloscope triggering)
