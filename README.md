@@ -40,7 +40,9 @@ The design is fully modular, split into two clock-synchronized paths:
 
 ## Analog Front-End
 
-The ADC accepts 0–3.3 V, so the input is conditioned with an op-amp circuit implementing `V_adc = G·V_in + V_offset` (G = 0.169 V/V, V_offset = 1.78 V), mapping −9…+9 V onto 0.26–3.30 V. Diode clippers protect the ADC from over-voltage. LTspice schematic in [`analog/`](analog/).
+The ADC accepts 0–3.3 V, so the input is conditioned with an op-amp circuit implementing `V_adc = G·V_in + V_offset` (G = 0.169 V/V, V_offset = 1.78 V), mapping −9…+9 V onto 0.26–3.30 V. Diode clippers protect the ADC from over-voltage.
+
+![LTspice schematic of the analog front-end](docs/img/ltspice_schematic.png)
 
 ## Verification
 
