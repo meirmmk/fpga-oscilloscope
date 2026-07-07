@@ -46,13 +46,13 @@ The ADC accepts 0–3.3 V, so the input is conditioned with an op-amp circuit im
 
 ## Verification
 
-Every major block was verified with a behavioral testbench before integration:
+Every major block was verified with a behavioral testbench (in [`tb/`](tb/)) before integration:
 
 - **SPI receiver / voltmeter path** — validated in simulation and on hardware (logic-analyzer capture of `spi_cs`, `spi_sclk`, `spi_data`, `new_data`)
 - **Frequency controller** — verified debouncing, exactly-one-pulse-per-press, and min/max saturation
 - **Edge detector** — one pulse per conversion, no retriggering while chip-select stays high
-- **Shift register** — sample ordering and history preservation across shifts
-- **VGA prep** — downsizing, axis inversion, clamping to (0, 480)
+- **Shift register** — sample ordering, history preservation, and correct blocking when `shift_en` is low
+- **VGA prep** — self-checking testbench with assertions on the exact ADC-to-coordinate mapping (0→480, 2048→255, 4095→0), covering downsizing, axis inversion, and clamping
 - **VGA sync** — timing checked against the 640×480 VGA specification
 - **Framebuffer** — pixel match logic and frame-boundary-only updates (no tearing)
 
