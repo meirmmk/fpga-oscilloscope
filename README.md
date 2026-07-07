@@ -56,7 +56,7 @@ Every major block was verified with a behavioral testbench before integration:
 - **VGA sync** — timing checked against the 640×480 VGA specification
 - **Framebuffer** — pixel match logic and frame-boundary-only updates (no tearing)
 
-Full system validated on hardware with a function generator driving the analog front-end. Simulation waveforms are in [`docs/img/`](docs/img/); full details in the [project report](docs/report.pdf).
+Full system validated on hardware with a function generator driving the analog front-end. Simulation waveforms are in [`docs/waveforms/`](docs/waveforms/); full details in the [project report](docs/report.pdf).
 
 ## Resource Utilization
 
