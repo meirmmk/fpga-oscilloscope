@@ -1,0 +1,31 @@
+# ===== Vivado generated files =====
+*.jou
+*.log
+*.str
+*.debug
+*.zip
+.Xil/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/*/ip/*/*.log
+vivado*.backup*
+xsim.dir/
+*.wdb
+*.pb
+*.vcd
+
+# Vivado project files (regenerate via TCL or keep only .xpr if desired)
+*.xpr
+*.tmp/
+
+# Bitstreams (optional: some people commit the final .bit — your call)
+*.bit
+*.bin
+*.ltx
+
+# ===== OS junk =====
+.DS_Store
+Thumbs.db
