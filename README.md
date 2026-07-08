@@ -76,6 +76,11 @@ Synthesized and implemented with zero warnings.
 3. Generate the `blk_mem_gen_0` IP (Block Memory Generator: single-port ROM, 16-bit width, 4096 depth) initialized with `rtl/acquisition/myVoltmeter.coe` — this ROM converts raw ADC codes to display voltages for the seven-segment readout
 4. Connect the PMOD ADC and analog front-end per the schematic above
 5. Synthesize, implement, and program the board; connect a VGA monitor
+
+## Post-Course Improvements
+
+Revisiting the RTL after the course, I found and fixed a clock-domain-crossing bug in the chip-select edge detector: the edge comparison used the raw asynchronous `spi_cs` instead of the synchronized `cs_sync2`, bypassing the 2-stage synchronizer and producing a ~3-cycle `new_data` pulse (each ADC sample was shifted into the display buffer three times). Comparing the synchronized signal restores metastability protection and a true one-clock pulse.
+
 ## Future Work
 
 - **Trigger mode** — stabilize the display on repetitive signals (classic oscilloscope triggering)
