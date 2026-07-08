@@ -39,7 +39,7 @@ begin
         cs_sync1 <= spi_cs;
         cs_sync2 <= cs_sync1;
         
-        if spi_cs = '1' and cs_prev = '0' then 
+        if cs_sync2 = '1' and cs_prev = '0' then 
             new_data <= '1';
         else 
             new_data <= '0';
